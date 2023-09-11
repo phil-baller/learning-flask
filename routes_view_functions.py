@@ -1,18 +1,15 @@
 from flask import Flask, render_template, url_for, request
-from flask import make_response, redirect
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
-
+bootstrap = Bootstrap(app)
 @app.route('/')
 def index():
-    return redirect('https://www.google.com')
+    return render_template('index.html')
 
-
-@app.route('/<user>')
-def new_user(user):
-    return '<h2> Welcome %s' %user
-
-new_user('baller')
+@app.route('/user/<name>')
+def user(name):
+    return render_template('user.html', name=name)
 
 if __name__ == '__main__':
     app.run(debug=True)
