@@ -12,5 +12,9 @@
     {% block page_content %}
         <h2 style="padding-left: 50px;">Here is the test of how the homepage is inherited from the base of html</h2>
     {% endblock %}
+{% endblock %}
 
+{% block scripts %}
+ <p class="display-5">the local date and time is {{ moment(current_time).format('LLL') }}.</p>
+    <p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
 {% endblock %}
